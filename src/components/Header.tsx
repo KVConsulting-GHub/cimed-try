@@ -1,60 +1,62 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "./ui/button";
+import { Menu, X, Search, ShoppingCart } from "lucide-react";
 
 const navItems = [
-  { label: "Sobre Nós", href: "#" },
+  { label: "Sobre a VitaCare", href: "#" },
   { label: "Produtos", href: "#produtos" },
   { label: "Notícias", href: "#novidades" },
-  { label: "Onde Encontrar", href: "#onde-encontrar" },
-  { label: "Contato", href: "#" },
+  { label: "Carreiras", href: "#" },
+  { label: "SAC / Atendimento", href: "#" },
 ];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-foreground text-white">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20 px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 md:h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">V</span>
+            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm">V</span>
             </div>
-            <span className="font-bold text-xl text-foreground">VitaCare</span>
+            <span className="font-bold text-lg text-white">VitaCare</span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors link-underline"
+                className="text-sm font-medium text-white/80 hover:text-white transition-colors"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button className="btn-primary">
-              Fale Conosco
-            </Button>
+          {/* Right Side */}
+          <div className="hidden lg:flex items-center gap-4">
+            <button className="text-white/80 hover:text-white transition-colors">
+              <Search className="w-5 h-5" />
+            </button>
+            <button className="bg-primary text-primary-foreground font-semibold px-5 py-2 text-sm hover:bg-primary/90 transition-colors">
+              Compre agora
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-6 h-6 text-white" />
             )}
           </button>
         </div>
@@ -67,23 +69,23 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-border"
+            className="lg:hidden bg-foreground border-t border-white/10"
           >
             <nav className="container-custom py-4 px-4 sm:px-6">
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
                 {navItems.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
-                    className="text-base font-medium text-foreground py-2 hover:text-primary transition-colors"
+                    className="text-base font-medium text-white/80 py-2 hover:text-white transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
                   </a>
                 ))}
-                <Button className="btn-primary mt-4 w-full">
-                  Fale Conosco
-                </Button>
+                <button className="bg-primary text-primary-foreground font-semibold py-3 mt-2 text-sm">
+                  Compre agora
+                </button>
               </div>
             </nav>
           </motion.div>

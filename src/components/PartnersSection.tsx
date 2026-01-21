@@ -1,28 +1,29 @@
 import { motion } from "framer-motion";
 
 const partners = [
-  { name: "Brand A", initial: "A" },
-  { name: "Brand B", initial: "B" },
-  { name: "Brand C", initial: "C" },
-  { name: "Brand D", initial: "D" },
-  { name: "Brand E", initial: "E" },
-  { name: "Brand F", initial: "F" },
-  { name: "Brand G", initial: "G" },
+  { name: "Nevralgex", color: "bg-red-500" },
+  { name: "XO", color: "bg-yellow-500" },
+  { name: "KMED", color: "bg-gray-700" },
+  { name: "Cimelide", color: "bg-green-600" },
+  { name: "Ciflogex", color: "bg-blue-600" },
+  { name: "Foxx", color: "bg-orange-500" },
+  { name: "Lavitan", color: "bg-yellow-400" },
+  { name: "Acetil", color: "bg-purple-600" },
 ];
 
 export function PartnersSection() {
   return (
-    <section className="py-16 bg-background">
+    <section className="py-8 md:py-12 bg-background border-b border-border">
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          transition={{ duration: 0.5 }}
+          className="text-center mb-6"
         >
-          <p className="text-muted-foreground text-lg">
-            Nossas marcas estão <span className="font-semibold text-foreground">presentes no seu dia a dia</span>
+          <p className="text-muted-foreground text-sm md:text-base">
+            A <span className="font-bold text-primary">VitaCare</span> está presente no seu dia a dia
           </p>
         </motion.div>
 
@@ -30,23 +31,22 @@ export function PartnersSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-wrap justify-center items-center gap-6 md:gap-10"
+          transition={{ duration: 0.6 }}
+          className="flex flex-wrap justify-center items-center gap-4 md:gap-6 lg:gap-8"
         >
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              whileHover={{ scale: 1.1 }}
-              className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white border-2 border-border 
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white border border-border 
                          flex items-center justify-center shadow-sm hover:shadow-md 
                          hover:border-primary transition-all duration-300 cursor-pointer"
             >
-              <span className="text-2xl md:text-3xl font-bold text-muted-foreground">
-                {partner.initial}
+              <span className="text-xs md:text-sm font-bold text-muted-foreground text-center px-1">
+                {partner.name}
               </span>
             </motion.div>
           ))}

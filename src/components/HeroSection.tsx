@@ -1,116 +1,127 @@
 import { motion } from "framer-motion";
 import { Search, ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
 import heroImage from "@/assets/hero-family.jpg";
 
 export function HeroSection() {
   return (
-    <section className="hero-gradient min-h-screen pt-20 md:pt-24 relative overflow-hidden">
-      <div className="container-custom section-padding">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+    <section className="hero-bg min-h-screen relative overflow-hidden pt-20">
+      {/* Decorative curved shape on left */}
+      <div className="absolute left-0 top-1/4 w-24 md:w-32 h-64 md:h-80">
+        <svg viewBox="0 0 100 300" fill="none" className="w-full h-full">
+          <path
+            d="M-50 0C30 50 50 150 -50 300"
+            stroke="hsl(var(--primary-foreground))"
+            strokeWidth="3"
+            strokeOpacity="0.15"
+            fill="none"
+          />
+          <path
+            d="M-30 0C50 60 70 160 -30 300"
+            stroke="hsl(var(--primary-foreground))"
+            strokeWidth="2"
+            strokeOpacity="0.1"
+            fill="none"
+          />
+        </svg>
+      </div>
+
+      {/* Decorative dots pattern */}
+      <div className="absolute right-10 top-32 hidden lg:block">
+        <div className="grid grid-cols-4 gap-2 opacity-20">
+          {[...Array(16)].map((_, i) => (
+            <div key={i} className="w-2 h-2 bg-foreground rounded-full" />
+          ))}
+        </div>
+      </div>
+
+      <div className="container-custom px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-5rem)] py-12">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="order-2 lg:order-1"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-[1.1] mb-6">
               Saúde e bem-estar
               <br />
-              <span className="relative inline-block">
-                para toda a família.
+              para <span className="relative inline-block">
+                <span className="relative z-10">todos os</span>
+              </span>
+              <br />
+              <span className="relative inline-block font-black">
+                brasileiros.
                 <svg
-                  className="absolute -bottom-2 left-0 w-full"
-                  height="8"
-                  viewBox="0 0 200 8"
+                  className="absolute -bottom-1 md:-bottom-2 left-0 w-full"
+                  height="12"
+                  viewBox="0 0 300 12"
                   fill="none"
+                  preserveAspectRatio="none"
                 >
                   <path
-                    d="M2 6C50 2 150 2 198 6"
-                    stroke="hsl(var(--primary))"
+                    d="M2 8C80 4 220 4 298 8"
+                    stroke="hsl(var(--foreground))"
                     strokeWidth="3"
                     strokeLinecap="round"
+                    strokeOpacity="0.3"
                   />
                 </svg>
               </span>
             </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-lg">
-              Cuidando da sua saúde há mais de 50 anos com medicamentos de 
-              qualidade certificada e preços acessíveis que cabem no seu bolso.
-            </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="btn-primary inline-flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row gap-3 mt-8">
+              <button className="btn-secondary inline-flex items-center justify-center gap-2 rounded-full">
                 <Search className="w-5 h-5" />
-                Buscar Medicamentos
-              </Button>
-              <Button className="btn-secondary inline-flex items-center gap-2">
-                Saiba Mais
+                Encontrar Medicamentos
+              </button>
+              <button className="btn-primary inline-flex items-center justify-center gap-2 rounded-full">
+                Nossos Produtos
                 <ArrowRight className="w-5 h-5" />
-              </Button>
-            </div>
-
-            {/* Stats */}
-            <div className="flex gap-8 mt-12 pt-8 border-t border-border/50">
-              <div>
-                <p className="text-3xl font-bold text-foreground">50+</p>
-                <p className="text-sm text-muted-foreground">Anos de história</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-foreground">500+</p>
-                <p className="text-sm text-muted-foreground">Produtos</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-foreground">5M+</p>
-                <p className="text-sm text-muted-foreground">Famílias atendidas</p>
-              </div>
+              </button>
             </div>
           </motion.div>
 
           {/* Right Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             className="order-1 lg:order-2 relative"
           >
             <div className="relative">
-              {/* Decorative circle */}
-              <div className="absolute -top-8 -right-8 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
-              <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-accent/20 rounded-full blur-2xl" />
-              
               <img
                 src={heroImage}
                 alt="Família feliz e saudável"
-                className="relative z-10 w-full max-w-lg mx-auto rounded-3xl shadow-2xl object-cover aspect-[3/4]"
+                className="relative z-10 w-full max-w-xl mx-auto lg:max-w-none object-cover rounded-3xl shadow-2xl aspect-[4/5]"
               />
 
-              {/* Floating card */}
+              {/* Floating info card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute -bottom-6 -left-6 md:left-0 bg-white rounded-2xl shadow-xl p-4 z-20"
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="absolute bottom-8 right-4 md:right-0 bg-white rounded-lg shadow-xl p-4 md:p-5 z-20 max-w-[200px] md:max-w-[240px]"
               >
-                <p className="text-sm text-muted-foreground">Qualidade certificada pela</p>
-                <p className="font-bold text-foreground">ANVISA</p>
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                  Cuidando da sua saúde há quase <strong className="text-foreground">50 anos</strong> com medicamentos de qualidade certificada pela Anvisa e preços que cabem no seu bolso.
+                </p>
               </motion.div>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Wave decoration */}
+      {/* Bottom wave transition */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg
-          viewBox="0 0 1440 120"
+          viewBox="0 0 1440 60"
           fill="none"
           className="w-full h-auto"
+          preserveAspectRatio="none"
         >
           <path
-            d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+            d="M0 60L1440 60L1440 30C1200 50 960 0 720 20C480 40 240 10 0 30L0 60Z"
             fill="hsl(var(--background))"
           />
         </svg>

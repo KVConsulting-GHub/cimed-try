@@ -26,7 +26,7 @@ const features = [
 
 export function WhyChooseSection() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-16 md:py-24 bg-muted/30">
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -35,9 +35,15 @@ export function WhyChooseSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Por que escolher a <span className="text-primary">VitaCare</span>
-          </h2>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Por que escolher a
+            </h2>
+            <span className="text-3xl md:text-4xl font-bold text-primary">VitaCare</span>
+            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm">V</span>
+            </div>
+          </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Nossa expertise e compromisso fazem a diferença na sua saúde
           </p>
@@ -51,16 +57,13 @@ export function WhyChooseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 text-center shadow-sm card-hover"
+              className="bg-white border border-border p-6 text-center hover:border-foreground transition-colors"
             >
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5"
-              >
-                <feature.icon className="w-8 h-8 text-primary" />
-              </motion.div>
-              <h3 className="font-bold text-foreground mb-3">{feature.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <div className="w-14 h-14 bg-muted rounded-full flex items-center justify-center mx-auto mb-5">
+                <feature.icon className="w-7 h-7 text-foreground" />
+              </div>
+              <h3 className="font-bold text-foreground mb-3 text-sm">{feature.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>
             </motion.div>
