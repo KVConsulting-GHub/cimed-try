@@ -5,22 +5,26 @@ const features = [
   {
     icon: Award,
     title: "Quase 50 anos de experiência",
-    description: "Desde 1975, dedicando-se à saúde dos brasileiros com excelência e comprometimento.",
+    description:
+      "Desde 1975, dedicando-se à saúde dos brasileiros com excelência e comprometimento.",
   },
   {
     icon: ShieldCheck,
     title: "Qualidade certificada",
-    description: "Todos os nossos medicamentos são aprovados pela ANVISA, garantindo segurança e eficácia.",
+    description:
+      "Todos os nossos medicamentos são aprovados pela ANVISA, garantindo segurança e eficácia.",
   },
   {
     icon: Globe,
     title: "Presença nacional",
-    description: "Presentes em todo o Brasil, levando saúde acessível para milhões de famílias.",
+    description:
+      "Presentes em todo o Brasil, levando saúde acessível para milhões de famílias.",
   },
   {
     icon: BadgeDollarSign,
     title: "Preços acessíveis",
-    description: "Comprometidos em oferecer medicamentos de qualidade com preços que cabem no bolso.",
+    description:
+      "Comprometidos em oferecer medicamentos de qualidade com preços que cabem no bolso.",
   },
 ];
 
@@ -39,9 +43,13 @@ export function WhyChooseSection() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Por que escolher a
             </h2>
-            <span className="text-3xl md:text-4xl font-bold text-primary">VitaCare</span>
+            <span className="text-3xl md:text-4xl font-bold text-primary">
+              CIMED
+            </span>
             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">V</span>
+              <span className="text-primary-foreground font-bold text-sm">
+                V
+              </span>
             </div>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -62,7 +70,9 @@ export function WhyChooseSection() {
               <div className="w-14 h-14 bg-muted rounded-full flex items-center justify-center mx-auto mb-5">
                 <feature.icon className="w-7 h-7 text-foreground" />
               </div>
-              <h3 className="font-bold text-foreground mb-3 text-sm">{feature.title}</h3>
+              <h3 className="font-bold text-foreground mb-3 text-sm">
+                {feature.title}
+              </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
                 {feature.description}
               </p>

@@ -9,13 +9,15 @@ const newsItems = [
   {
     id: 1,
     category: "Nota de imprensa",
-    title: "VitaCare conquista certificação de excelência pela 3a reforçando compromisso com qualidade.",
+    title:
+      "CIMED conquista certificação de excelência pela 3a reforçando compromisso com qualidade.",
     image: news1,
   },
   {
     id: 2,
     category: "Institucional",
-    title: "Laboratório amplia agora a partir de Combate genéricos boas práticas.",
+    title:
+      "Laboratório amplia agora a partir de Combate genéricos boas práticas.",
     image: news2,
   },
   {
@@ -41,7 +43,7 @@ export function NewsSection() {
             Últimas Novidades
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Fique por dentro das últimas notícias, eventos e inovações da VitaCare
+            Fique por dentro das últimas notícias, eventos e inovações da CIMED
           </p>
         </motion.div>
 
@@ -63,7 +65,9 @@ export function NewsSection() {
                 />
               </div>
               <div className="p-5">
-                <span className="badge-tag mb-3 inline-block">{item.category}</span>
+                <span className="badge-tag mb-3 inline-block">
+                  {item.category}
+                </span>
                 <h3 className="font-semibold text-foreground leading-snug mb-4 line-clamp-3 text-sm group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>

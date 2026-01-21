@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Search, ShoppingCart } from "lucide-react";
 
 const navItems = [
-  { label: "Sobre a VitaCare", href: "#" },
+  { label: "Sobre a CIMED", href: "#" },
   { label: "Produtos", href: "#produtos" },
   { label: "Notícias", href: "#novidades" },
   { label: "Carreiras", href: "#" },
@@ -20,9 +20,11 @@ export function Header() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">V</span>
+              <span className="text-primary-foreground font-bold text-m">
+                CD
+              </span>
             </div>
-            <span className="font-bold text-lg text-white">VitaCare</span>
+            <span className="font-bold text-lg text-white">CIMED</span>
           </a>
 
           {/* Desktop Navigation */}

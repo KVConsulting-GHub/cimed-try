@@ -23,7 +23,8 @@ export function PartnersSection() {
           className="text-center mb-6"
         >
           <p className="text-muted-foreground text-sm md:text-base">
-            A <span className="font-bold text-primary">VitaCare</span> está presente no seu dia a dia
+            A <span className="font-bold text-primary">CIMED</span> está
+            presente no seu dia a dia
           </p>
         </motion.div>
 

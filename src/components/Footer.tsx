@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Linkedin, Youtube, Phone, Mail } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Phone,
+  Mail,
+} from "lucide-react";
 
 const footerLinks = {
   produtos: [
@@ -43,12 +50,15 @@ export function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-2 mb-4 lg:mb-0">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">V</span>
+                <span className="text-primary-foreground font-bold text-lg">
+                  V
+                </span>
               </div>
-              <span className="font-bold text-xl text-white">VitaCare</span>
+              <span className="font-bold text-xl text-white">CIMED</span>
             </div>
             <p className="text-xs opacity-60 mb-4 max-w-xs leading-relaxed">
-              Sua parceira na jornada pela saúde. Qualidade, acessibilidade e compromisso com o bem-estar dos brasileiros.
+              Sua parceira na jornada pela saúde. Qualidade, acessibilidade e
+              compromisso com o bem-estar dos brasileiros.
             </p>
             <div className="flex gap-2">
               {socialLinks.map((social) => (
@@ -84,7 +94,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white text-sm mb-4">Institucional</h4>
+            <h4 className="font-semibold text-white text-sm mb-4">
+              Institucional
+            </h4>
             <ul className="space-y-2">
               {footerLinks.institucional.map((link) => (
                 <li key={link.label}>
@@ -136,7 +148,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-xs opacity-60">
                 <Mail className="w-3 h-3" />
-                <span>sac@vitacare.com.br</span>
+                <span>sac@CIMED.com.br</span>
               </div>
             </div>
           </div>
@@ -145,7 +157,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs opacity-50">
-            © 2025 VitaCare. Todos os direitos reservados.
+            © 2025 CIMED. Todos os direitos reservados.
           </p>
           <p className="text-[10px] opacity-40 text-center md:text-right uppercase tracking-wide">
             SE PERSISTIREM OS SINTOMAS, O MÉDICO DEVERÁ SER CONSULTADO.
