@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* Brand Colors - Warm Yellow/Gold Theme */
-    --background: 48 100% 99%;
+    /* Brand Colors - Strong Yellow/Gold Theme */
+    --background: 0 0% 100%;
     --foreground: 30 10% 15%;
 
     --card: 0 0% 100%;
@@ -16,8 +16,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 30 10% 15%;
 
-    /* Primary - Warm Golden Yellow */
-    --primary: 45 93% 52%;
+    /* Primary - Strong Golden Yellow */
+    --primary: 45 100% 50%;
     --primary-foreground: 30 10% 12%;
 
     /* Secondary - Soft warm gray */
@@ -37,22 +37,20 @@
     --destructive-foreground: 0 0% 100%;
 
     /* Borders and inputs */
-    --border: 40 20% 88%;
-    --input: 40 20% 88%;
-    --ring: 45 93% 52%;
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 45 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom tokens */
-    --hero-gradient-start: 48 100% 96%;
-    --hero-gradient-mid: 45 95% 88%;
-    --hero-gradient-end: 40 90% 80%;
+    /* Custom section tokens */
+    --hero-bg: 45 100% 50%;
+    --hero-bg-light: 48 100% 55%;
     
-    --products-bg: 48 100% 97%;
-    --commitment-bg: 30 15% 18%;
-    --commitment-foreground: 0 0% 100%;
-    --newsletter-bg: 45 95% 92%;
-    --footer-bg: 30 12% 12%;
+    --products-bg: 48 100% 94%;
+    --commitment-bg: 45 100% 50%;
+    --newsletter-bg: 45 100% 50%;
+    --footer-bg: 30 15% 12%;
     --footer-foreground: 40 10% 85%;
     
     /* Sidebar */
@@ -63,7 +61,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 45 93% 52%;
+    --sidebar-ring: 45 100% 50%;
   }
 
   .dark {
@@ -76,7 +74,7 @@
     --popover: 30 12% 12%;
     --popover-foreground: 40 10% 95%;
 
-    --primary: 45 93% 52%;
+    --primary: 45 100% 50%;
     --primary-foreground: 30 10% 12%;
 
     --secondary: 30 10% 18%;
@@ -93,7 +91,7 @@
 
     --border: 30 10% 20%;
     --input: 30 10% 20%;
-    --ring: 45 93% 52%;
+    --ring: 45 100% 50%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -102,7 +100,7 @@
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 45 93% 52%;
+    --sidebar-ring: 45 100% 50%;
   }
 }
 
@@ -122,21 +120,12 @@
 }
 
 @layer components {
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
-  }
-
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto w-full;
   }
 
-  .hero-gradient {
-    background: linear-gradient(
-      135deg, 
-      hsl(var(--hero-gradient-start)) 0%, 
-      hsl(var(--hero-gradient-mid)) 50%, 
-      hsl(var(--hero-gradient-end)) 100%
-    );
+  .hero-bg {
+    background-color: hsl(var(--hero-bg));
   }
 
   .products-bg {
@@ -145,7 +134,6 @@
 
   .commitment-bg {
     background-color: hsl(var(--commitment-bg));
-    color: hsl(var(--commitment-foreground));
   }
 
   .newsletter-bg {
@@ -162,47 +150,53 @@
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground font-semibold rounded-full px-8 py-3 
-           transition-all duration-300 hover:shadow-lg hover:scale-105 
-           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply bg-foreground text-background font-semibold rounded-md px-6 py-3 
+           transition-all duration-300 hover:bg-foreground/90
+           focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2;
+  }
+
+  .btn-primary-dark {
+    @apply bg-foreground text-white font-semibold rounded-md px-6 py-3 
+           transition-all duration-300 hover:bg-foreground/90
+           focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2;
   }
 
   .btn-secondary {
     @apply bg-transparent border-2 border-foreground text-foreground font-semibold 
-           rounded-full px-8 py-3 transition-all duration-300 
+           rounded-md px-6 py-3 transition-all duration-300 
            hover:bg-foreground hover:text-background;
   }
 
-  .btn-outline-light {
-    @apply bg-transparent border-2 border-white/80 text-white font-semibold 
-           rounded-full px-6 py-2 transition-all duration-300 
-           hover:bg-white hover:text-primary-foreground;
+  .btn-outline {
+    @apply bg-transparent border border-border text-foreground font-medium 
+           rounded-md px-4 py-2 transition-all duration-300 
+           hover:border-foreground hover:bg-muted;
   }
 
   .input-search {
-    @apply w-full rounded-full border-2 border-border bg-white px-6 py-4 
+    @apply w-full border border-border bg-white px-5 py-4 
            text-foreground placeholder:text-muted-foreground 
-           focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary
+           focus:outline-none focus:ring-2 focus:ring-foreground focus:border-foreground
            transition-all duration-200;
   }
 
   .chip {
-    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border 
+    @apply inline-flex items-center gap-2 px-4 py-2 border border-border 
            bg-white text-sm font-medium text-muted-foreground 
-           transition-all duration-200 hover:border-primary hover:text-primary cursor-pointer;
+           transition-all duration-200 hover:border-foreground hover:text-foreground cursor-pointer;
   }
 
   .chip-active {
-    @apply bg-primary text-primary-foreground border-primary;
+    @apply bg-foreground text-background border-foreground;
   }
 
   .badge-tag {
-    @apply inline-block px-3 py-1 text-xs font-semibold rounded-full 
-           bg-primary/10 text-primary;
+    @apply inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide
+           bg-primary text-primary-foreground;
   }
 
   .metric-number {
-    @apply text-5xl md:text-6xl font-extrabold;
+    @apply text-5xl md:text-6xl lg:text-7xl font-black;
   }
 
   .link-underline {
@@ -210,6 +204,10 @@
            after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-current 
            after:origin-bottom-right after:transition-transform after:duration-300 
            hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  .product-card {
+    @apply bg-white border-2 border-border overflow-hidden transition-all duration-300 hover:border-foreground;
   }
 }
 

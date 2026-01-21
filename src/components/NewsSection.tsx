@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
 
 import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
@@ -9,27 +8,27 @@ import news3 from "@/assets/news-3.jpg";
 const newsItems = [
   {
     id: 1,
-    category: "Institucional",
-    title: "VitaCare renova certificação de qualidade e reafirma compromisso com excelência",
+    category: "Nota de imprensa",
+    title: "VitaCare conquista certificação de excelência pela 3a reforçando compromisso com qualidade.",
     image: news1,
   },
   {
     id: 2,
-    category: "Inovação",
-    title: "Laboratório amplia investimentos em pesquisa e desenvolvimento para 2025",
+    category: "Institucional",
+    title: "Laboratório amplia agora a partir de Combate genéricos boas práticas.",
     image: news2,
   },
   {
     id: 3,
-    category: "Saúde",
-    title: "Programa de bem-estar incentiva práticas saudáveis em comunidades",
+    category: "Meio ambiente",
+    title: "Chega na nova fábrica com práticas auto densa de tubo.",
     image: news3,
   },
 ];
 
 export function NewsSection() {
   return (
-    <section className="py-20 bg-background" id="novidades">
+    <section className="py-16 md:py-24 bg-background" id="novidades">
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,11 +37,11 @@ export function NewsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Últimas Novidades
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Fique por dentro das últimas notícias, eventos e inovações
+            Fique por dentro das últimas notícias, eventos e inovações da VitaCare
           </p>
         </motion.div>
 
@@ -54,21 +53,21 @@ export function NewsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm card-hover group cursor-pointer"
+              className="bg-white border border-border overflow-hidden group cursor-pointer hover:border-foreground transition-colors"
             >
-              <div className="aspect-video overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-5">
                 <span className="badge-tag mb-3 inline-block">{item.category}</span>
-                <h3 className="font-semibold text-foreground leading-snug mb-4 line-clamp-2 group-hover:text-primary transition-colors">
+                <h3 className="font-semibold text-foreground leading-snug mb-4 line-clamp-3 text-sm group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                <span className="text-sm font-medium text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="text-sm font-medium text-muted-foreground inline-flex items-center gap-1 group-hover:text-foreground group-hover:gap-2 transition-all">
                   Ler mais
                   <ArrowRight className="w-4 h-4" />
                 </span>
@@ -84,12 +83,10 @@ export function NewsSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <Button
-            variant="outline"
-            className="rounded-full border-foreground text-foreground hover:bg-foreground hover:text-background"
-          >
+          <button className="btn-secondary inline-flex items-center gap-2">
             Ver todas as notícias
-          </Button>
+            <ArrowRight className="w-5 h-5" />
+          </button>
         </motion.div>
       </div>
     </section>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Pill, Heart, Droplets, Baby, Sun, MoreHorizontal } from "lucide-react";
-import { Button } from "./ui/button";
 
 const categories = [
   { label: "Dor e Febre", icon: Pill },
@@ -17,35 +16,35 @@ export function SearchSection() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   return (
-    <section className="py-20 bg-background" id="busca">
+    <section className="py-16 md:py-24 bg-background" id="busca">
       <div className="container-custom px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-4xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             O que você procura?
           </h2>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-muted-foreground mb-10 text-base md:text-lg">
             Encontre medicamentos, vitaminas e produtos para o seu bem-estar
           </p>
 
           {/* Search Bar */}
-          <div className="relative max-w-2xl mx-auto mb-8">
+          <div className="relative max-w-3xl mx-auto mb-10">
             <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <input
               type="text"
               placeholder="Digite o nome do medicamento ou princípio ativo..."
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
-              className="input-search pl-14 pr-32"
+              className="input-search pl-14 pr-32 rounded-md"
             />
-            <Button className="absolute right-2 top-1/2 -translate-y-1/2 btn-primary py-2 px-6">
+            <button className="absolute right-2 top-1/2 -translate-y-1/2 btn-primary py-2.5 px-6 text-sm">
               Buscar
-            </Button>
+            </button>
           </div>
 
           {/* Category Chips */}
@@ -54,19 +53,19 @@ export function SearchSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-3"
+            className="flex flex-wrap justify-center gap-2 md:gap-3"
           >
             {categories.map((category, index) => (
               <motion.button
                 key={category.label}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: 0.1 * index }}
                 onClick={() => setActiveCategory(
                   activeCategory === category.label ? null : category.label
                 )}
-                className={`chip ${activeCategory === category.label ? 'chip-active' : ''}`}
+                className={`chip rounded-md ${activeCategory === category.label ? 'chip-active' : ''}`}
               >
                 <category.icon className="w-4 h-4" />
                 {category.label}
